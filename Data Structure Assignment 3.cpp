@@ -4,6 +4,7 @@ using namespace std;
 #include"BST.h";
 #include"MinHeap.h";
 #include"MaxHeap.h";
+#include"AVL.h"
 int main() {
 	ifstream MyReadFile("input.txt");
 	string Line, n;
@@ -66,7 +67,12 @@ int main() {
 
 	}
 	else if (ch == 2) {
+		AVL a;
+		for (int i = 0; i <= info.size() - 3; i += 4) {
+			a.AddStudent(stoi(info[i]), info[i + 1], stod(info[i + 2]), info[i + 3]);
+		}
 		int ch2;
+		START5:
 		cout << "Choose one of the following options:\n";
 		cout << "For Add student      -------->Enter 1\n";
 		cout << "For Remove student   -------->Enter 2\n";
@@ -74,6 +80,24 @@ int main() {
 		cout << "For Print All(sorted by id)-->Enter 4\n";
 		cout << "For Return to main menu  ---->Enter 5\n";
 		cin >> ch2;
+		if (ch2 == 1) {
+			a.EnterData();
+			goto START5;
+		}
+		else if (ch2 == 2) {
+
+		}
+		else if (ch2 == 3) {
+			a.Search();
+			goto START5;
+		}
+		else if (ch2 == 4) {
+			a.printAllStudents();
+			goto START5;
+		}
+		else {
+			goto START;
+		}
 	}
 	else if (ch == 3) {
 		MinHeap h;
