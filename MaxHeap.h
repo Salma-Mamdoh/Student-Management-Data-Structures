@@ -51,17 +51,32 @@ public:
 		int sid;
 		double sgpa;
 		cout << "Enter your ID : ";
+		start:
 		cin >> sid;
 		while (!(sid >= 0 && sid <= 100)) {
 			cout << "This invalid id\n";
 			cout << "Enter valid ID\n";
 			cin >> sid;
 		}
+		for (int i = 0; i < vec.size(); i++) {
+			if (vec[i]->id == sid) {
+				cout << "Invalid id duplication is Not Allowed ";
+				cout << "Enter a valid ID: ";
+				goto start;
+			}
+			else {
+				continue;
+			}
+		}
 		cout << "Enter your Name : ";
 		cin.ignore();
 		cin.getline(sname, 1000, '\n');
 		cout << "Enter your GPA : ";
 		cin >> sgpa;
+		while (!(sgpa > 0 && sgpa <= 4)) {
+			cout << "invalid GPA , Enter correct GPA\n";
+			cin >> sgpa;
+		}
 		cout << "Enter your Department : ";
 		cin >> sdepartment;
 		insert(sid, sname, sgpa, sdepartment);
