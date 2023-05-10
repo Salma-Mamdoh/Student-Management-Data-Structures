@@ -94,6 +94,10 @@ public:
 		cin.getline(sname,1000,'\n');
 		cout << "Enter your GPA : ";
 		cin >> sgpa;
+		while (!(sgpa > 0 && sgpa <= 4)) {
+			cout << "invalid GPA , Enter correct GPA\n";
+			cin >> sgpa;
+		}
 		cout << "Enter your Department : ";
 		cin >> sdepartment;
 		while (!insert(sid, sname, sgpa, sdepartment)) {
