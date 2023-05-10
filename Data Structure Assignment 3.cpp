@@ -5,6 +5,20 @@ using namespace std;
 #include"MinHeap.h";
 #include"MaxHeap.h";
 #include"AVL.h"
+void displayMenu1() {
+	cout << "Choose one of the following options:\n";
+	cout << "For Add student      -------->Enter 1\n";
+	cout << "For Remove student   -------->Enter 2\n";
+	cout << "For Search student   -------->Enter 3\n";
+	cout << "For Print All(sorted by id)-->Enter 4\n";
+	cout << "For Return to main menu  ---->Enter 5\n";
+}
+void diplayM2() {
+	cout << "Choose one of the following options:\n";
+	cout << "For Add student      -------->Enter 1\n";
+	cout << "For Print All(sorted by GPA)->Enter 2\n";
+	cout << "For Return to main menu  ---->Enter 3\n";
+}
 int main() {
 	ifstream MyReadFile("input.txt");
 	string Line, n;
@@ -37,12 +51,7 @@ int main() {
 		}
 		int ch2;
 		START2:
-		cout << "Choose one of the following options:\n";
-		cout << "For Add student      -------->Enter 1\n";
-		cout << "For Remove student   -------->Enter 2\n";
-		cout << "For Search student   -------->Enter 3\n";
-		cout << "For Print All(sorted by id)-->Enter 4\n";
-		cout << "For Return to main menu  ---->Enter 5\n";
+		displayMenu1();
 		cin >> ch2;
 		if (ch2 == 1) {
 			b1.AddStudent();
@@ -73,19 +82,15 @@ int main() {
 		}
 		int ch2;
 		START5:
-		cout << "Choose one of the following options:\n";
-		cout << "For Add student      -------->Enter 1\n";
-		cout << "For Remove student   -------->Enter 2\n";
-		cout << "For Search student   -------->Enter 3\n";
-		cout << "For Print All(sorted by id)-->Enter 4\n";
-		cout << "For Return to main menu  ---->Enter 5\n";
+		displayMenu1();
 		cin >> ch2;
 		if (ch2 == 1) {
 			a.EnterData();
 			goto START5;
 		}
 		else if (ch2 == 2) {
-
+			a.RemoveStudent();
+			goto START5;
 		}
 		else if (ch2 == 3) {
 			a.Search();
@@ -106,11 +111,7 @@ int main() {
 		}
 		int ch3;
 		START3:
-		cout << "Choose one of the following options:\n";
-		cout << "For Add student      -------->Enter 1\n";
-		cout << "For Print All(sorted by GPA)->Enter 2\n";
-		cout << "For Return to main menu  ---->Enter 3\n";
-
+		diplayM2();
 		cin >> ch3;
 		if (ch3 == 1) {
 			h.AddStudent();
@@ -132,10 +133,7 @@ int main() {
 		}
 		int ch4;
 		START4:
-		cout << "Choose one of the following options:\n";
-		cout << "For Add student      -------->Enter 1\n";
-		cout << "For Print All(sorted by GPA)-->Enter 2\n";
-		cout << "For Return to main menu  ---->Enter 3\n";
+		diplayM2();
 		cin >> ch4;
 		if (ch4 == 1) {
 			H.AddStudent();
@@ -154,6 +152,4 @@ int main() {
 	else {
 		exit(0);
 	}
-
-
 }
